@@ -1,6 +1,22 @@
 from flask import Flask, render_template, url_for, request
+from flask import SQLAlchemy
+
 
 app = Flask(__name__)
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:*******@localhost/age_collector"
+db = SQLAlchemy(app)
+
+
+class Data(db.Model):
+    __tablename__ = "data"
+    id = db.Column(db.Integer, primary_key = True)
+    email = db.Column(db.String(120), unique = True)
+    age = db.Column(db.Integer)
+
+    def __init__(self, email, age):
+        self.email = email
+        self.age = age
+        
 
 @app.route("/")
 def index():
