@@ -28,7 +28,7 @@ html, body {
 }
 
 .container form {
-    margin: 40px;
+    margin: 20px;
 
 }
 
@@ -44,5 +44,12 @@ html, body {
 .container button {
     width: 100px;
     height: 40px;
-    background-color: snow;
+    background-color: teal;
+    margin: 4px;
+}
+
+.container p {
+    margin: 150px;
+    font-size: 25px;
+    font-family: Verdana, sans-serif;
 }
