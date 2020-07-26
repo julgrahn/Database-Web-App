@@ -44,7 +44,7 @@ html, body {
 .container button {
     width: 100px;
     height: 40px;
-    background-color: teal;
+    background-color: lightgrey;
     margin: 4px;
 }
 
