@@ -32,7 +32,8 @@ def success():
             db.session.add(data)
             db.session.commit()
             return render_template("success.html")
-        return render_template("index.html")
+        return render_template("index.html", 
+        text = "That email address is already stored!")
 
 if __name__ == '__main__':
     app.debug = True
