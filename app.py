@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
-
+from send_email import send_email
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:postgres123@localhost/age_collector"
@@ -27,6 +27,7 @@ def success():
     if request.method == "POST":
         email = request.form["email_name"]
         age = request.form["age_name"]
+        send_email(email, age)
         if db.session.query(Data).filter(Data.email == email).count() == 0:
             data = Data(email, age)
             db.session.add(data)
