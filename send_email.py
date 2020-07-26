@@ -3,7 +3,7 @@ import smtplib
 
 def send_email(email, age):
     from_email = "agecollectorwebapp@gmail.com"
-    from_password = "testapp123"
+    from_password = "********"
     to_email = email
 
     subject = "Age data"
