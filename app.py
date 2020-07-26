@@ -1,9 +1,9 @@
-from flask import Flask, render_template, url_for, request
-from flask import SQLAlchemy
+from flask import Flask, render_template, request
+from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:*******@localhost/age_collector"
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:postgres123@localhost/age_collector"
 db = SQLAlchemy(app)
 
 
@@ -27,6 +27,9 @@ def success():
     if request.method == "POST":
         email = request.form["email_name"]
         age = request.form["age_name"]
+        data = Data(email, age)
+        db.session.add(data)
+        db.session.commit()
         return render_template("success.html")
 
 if __name__ == '__main__':
