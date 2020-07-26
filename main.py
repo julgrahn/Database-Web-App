@@ -10,7 +10,8 @@ def index():
 def success():
     if request.method == "POST":
         email = request.form["email_name"]
-    return render_template("success.html")
+        age = request.form["age_name"]
+        return render_template("success.html")
 
 if __name__ == '__main__':
     app.debug = True
